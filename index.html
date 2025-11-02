@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Pisani - AI Engineer & Multimodal Systems Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .link-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .skill-category h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .experience {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .experience-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric {
+            text-align: center;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .availability {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .availability-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .availability-item i {
+            color: #10b981;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="name">Michael Pisani</h1>
+            <p class="title">AI Engineer & Multimodal Systems Architect</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Willing to relocate anywhere</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Authorized to work in US</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-id-card"></i>
+                    <span>NMLS ID: 2071358</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/BenevolenceMessiah" class="link-btn" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://huggingface.co/BenevolenceMessiah" class="link-btn" target="_blank">
+                    <i class="fas fa-robot"></i>
+                    HuggingFace
+                </a>
+                <a href="https://pypi.org/user/BenevolenceMessiah/" class="link-btn" target="_blank">
+                    <i class="fab fa-python"></i>
+                    PyPI
+                </a>
+                <a href="https://michaelpisani.info" class="link-btn" target="_blank">
+                    <i class="fas fa-newspaper"></i>
+                    Papers (Coming Soon)
+                </a>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user-circle"></i>
+                Professional Summary
+            </h2>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary);">
+                Self-taught AI engineer with deep expertise across all modalities and a unique cross-domain background spanning banking/finance, technical support, and management. 
+                <strong>Creator of the Multimodal Discord Bot</strong>, several Python/AI packages, and contributor to major open-source AI projects. 
+                Proven ability to bridge the gap between cutting-edge AI research and practical business applications.
+            </p>
+            
+            <div class="highlight">
+                <strong>Key Differentiator:</strong> Combining deep AI technical expertise with real-world business acumen from banking, customer service, and operations management - enabling me to build AI solutions that actually solve business problems.
+            </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="metrics">
+            <div class="metric">
+                <span class="metric-number">105+ (Public)</span>
+                <div class="metric-label">AI Models Quantized</div>
+            </div>
+            <div class="metric">
+                <span class="metric-number">73 (Public)</span>
+                <div class="metric-label">GitHub Repositories</div>
+            </div>
+            <div class="metric">
+                <span class="metric-number">4+</span>
+                <div class="metric-label">Years AI Experience</div>
+            </div>
+            <div class="metric">
+                <span class="metric-number">2000+</span>
+                <div class="metric-label">Model Downloads</div>
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                Technical Expertise
+            </h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-robot"></i> AI/ML Technologies</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Transformers/Xformers</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Diffusers</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">SciPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Datasets</span>
+                        <span class="skill-tag">Gradio</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Uvicorn</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Ollama</span>
+                        <span class="skill-tag">OpenRouter</span>
+                        <span class="skill-tag">GGUF Quantization</span>
+                        <span class="skill-tag">TIES and DARE-TIES Model Merging</span>
+                        <span class="skill-tag">Fine-tuning</span>
+                        <span class="skill-tag">Agentic Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-laptop-code"></i> Programming Language Experience</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Ruby</span>
+                        <span class="skill-tag">Shellscript</span>
+                        <span class="skill-tag">Batch</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Docker Compose</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-cloud"></i> Infrastructure & DevOps Experience</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Qdrant</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Open WebUI</span>
+                        <span class="skill-tag">ComfyUI</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">Flowise</span>
+                        <span class="skill-tag">HuggingFace Spaces</span>
+                        <span class="skill-tag">GPU Optimization</span>
+                        <span class="skill-tag">Cloud Deployment</span>
+                        <span class="skill-tag">Linux/UNIX</span>
+                        <span class="skill-tag">Shell Scripting</span>
+                        <span class="skill-tag">Batch File Scripting</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-palette"></i> Multimodal & General AI Integration Experience</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">Text Generation</span>
+                        <span class="skill-tag">Image Synthesis</span>
+                        <span class="skill-tag">Video Generation (coming Soon)</span>
+                        <span class="skill-tag">Agentic Web Search Capabilities</span>
+                        <span class="skill-tag">Additional Agentic Scaffoldings and Integrations i.e. Google Suite,</span>
+                        <span class="skill-tag">Music Generation</span>
+                        <span class="skill-tag">TTS Services/Voice Cloning</span>
+                        <span class="skill-tag">Real-time Processing</span>
+                        <span class="skill-tag">Frontend/Backend Development</span>
+                        <span class="skill-tag">Local/Cloud Modularity Development</span>
+                        <span class="skill-tag">MCP Integrations</span>
+                        <span class="skill-tag">RAG/Database/Embedding/Reranking Integrations</span>
+                    </div>
+                </div>
+                                <div class="skill-category">
+                    <h4><i class="fas fa-server"></i> SOTA Open Weight and Proprietary Models Experience</h4>
+                    <div class="skill-list">
+                        <span class="skill-tag">All Qwen Models and Modalities</span>
+                        <span class="skill-tag">Wan Family (including LoRAs)</span>
+                        <span class="skill-tag">All DeepSeek Models and Modalities</span>
+                        <span class="skill-tag">Kimi Family</span>
+                        <span class="skill-tag">Yi</span>
+                        <span class="skill-tag">Llama/Vicuna/Alpaca</span>
+                        <span class="skill-tag">Mistral/Mixtral</span>
+                        <span class="skill-tag">Gemma</span>
+                        <span class="skill-tag">Stable Diffusion</span>
+                        <span class="skill-tag">FLUX</span>
+                        <span class="skill-tag">Arctic-embed</span>
+                        <span class="skill-tag">FlagEmbedding</span>
+                        <span class="skill-tag">Nomic Embed</span>
+                        <span class="skill-tag">(And many other fantastic open weight models and Finetunes!)</span>
+                        <span class="skill-tag">ElevenLabs</span>
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Claude</span>
+                        <span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">Grok</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Projects -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-project-diagram"></i>
+                Key Projects & Contributions
+            </h2>
+
+            <div class="project">
+                <div class="project-title">
+                    <i class="fab fa-discord"></i>
+                    Multimodal Discord Bot
+                    <a href="https://github.com/BenevolenceMessiah/multimodal-discord-bot" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Project
+                    </a>
+                </div>
+                <div class="project-description">
+                    Comprehensive AI assistant integrating text generation, image creation, music synthesis, voice generation, and web search. 
+                    Built with TypeScript and Docker, supporting hybrid local/cloud AI providers with 30+ commits and ongoing development.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">OpenRouter</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">
+                    <i class="fas fa-music"></i>
+                    ACE-Step Music Generation API
+                    <a href="https://github.com/BenevolenceMessiah/ACE-Step" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Fork
+                    </a>
+                </div>
+                <div class="project-description">
+                    Enhanced music generation system with structured input processing, Discord integration, and API overhaul 
+                    for integration with the Multimodal Discord Bot. 
+                    Features automatic chunking for Discord's 10MB limit and configurable output formats.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">
+                    <i class="fas fa-video"></i>
+                    FramePack Video Diffusion API
+                    <a href="https://github.com/BenevolenceMessiah/FramePack" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Fork
+                    </a>
+                </div>
+                <div class="project-description">
+                    Video generation framework optimization for practical deployment. Working with next-frame prediction neural networks 
+                    for progressive video generation with constant memory usage regardless of video length. API integration with 
+                    on-demand unloading for future usage with the Multimodal Discord Bot.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Diffusion Models</span>
+                    <span class="tech-tag">Gradio</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">
+                    <i class="fas fa-brain"></i>
+                    HuggingFace Model Quantization and TIES/DARE-TIES Model Merging
+                    <a href="https://huggingface.co/BenevolenceMessiah" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Models
+                    </a>
+                </div>
+                <div class="project-description">
+                    105+ quantized AI models including Qwen3 series, Llama family, DeepSeek models, and custom abliterated versions. 
+                    Specializing in GGUF quantization and model optimization for local deployment. 
+                    Experienced in merging and quantizing state‑of‑the‑art language models using techniques like 
+                    TIES and DARE‑TIES and exporting them to efficient formats for local inference. Adept at working 
+                    with transformer‑based LLMs, diffusion models, audio and video generation systems, and robotic/agentic pipelines.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">GGML/GGUF</span>
+                    <span class="tech-tag">LLaMA.cpp</span>
+                    <span class="tech-tag">Quantization</span>
+                    <span class="tech-tag">Model Merge Strategies</span>
+                    <span class="tech-tag">Mergekit</span>
+                    <span class="tech-tag">Model Optimization</span>
+                    <span class="tech-tag">Qwen</span>
+                    <span class="tech-tag">DeepSeek</span>
+                    <span class="tech-tag">Kimi</span>
+                    <span class="tech-tag">Llama</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">
+                    <i class="fab fa-python"></i>
+                    PyPI Development Tools
+                    <a href="https://pypi.org/user/BenevolenceMessiah/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Packages
+                    </a>
+                </div>
+                <div class="project-description">
+                    Currently, three Python packages are published for AI development workflow: token counting for various file types, 
+                    file tree generation with icons, and requirements version checking against PyPI.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Package Development</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">AI Libraries</span>
+                    <span class="tech-tag">AI Workflows</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                Professional Background
+            </h2>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Personal Banker</div>
+                        <div class="experience-company">Fifth Third Bank</div>
+                    </div>
+                    <div class="experience-period">Present</div>
+                </div>
+                <div class="experience-description">
+                    Managing complex financial products, loan origination (NMLS 2071358), high-dollar transactions, and risk assessment. 
+                    Handling diverse account types, credit rehabilitation, and fraud mediation. This experience provides deep understanding 
+                    of regulatory compliance, risk management, and customer relationship building - crucial for AI applications in fintech.
+                </div>
+            </div>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Mortgage Banker</div>
+                        <div class="experience-company">Quicken Loans</div>
+                    </div>
+                    <div class="experience-period">Nov 2020 - Jun 2021</div>
+                </div>
+                <div class="experience-description">
+                    Formerly licensed in 11 states, originated conventional, government, and jumbo loans. Developed expertise in credit analysis, 
+                    loan structuring, and regulatory compliance. Passed comprehensive SAFE exam demonstrating analytical and risk assessment capabilities.
+                </div>
+            </div>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Insurance Technician</div>
+                        <div class="experience-company">Asurion</div>
+                    </div>
+                    <div class="experience-period">Nov 2018 - Nov 2020</div>
+                </div>
+                <div class="experience-description">
+                    Apple ACiT certified technician with Samsung Level 1 & 2 certifications. Performed device diagnostics, repairs, 
+                    data recovery, and insurance assessments. Developed technical troubleshooting skills and customer service expertise.
+                </div>
+            </div>
+
+            <div class="experience">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Multi-Unit Manager</div>
+                        <div class="experience-company">Eastern Eateries</div>
+                    </div>
+                    <div class="experience-period">Aug 2010 - Aug 2016</div>
+                </div>
+                <div class="experience-description">
+                    Managed 6 restaurants with 250+ employees across multiple locations. Responsible for operations, customer service, 
+                    staff training, and process optimization. Developed leadership, project management, and operational efficiency skills.
+                </div>
+            </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                Education & Certifications
+            </h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-university"></i> Education</h4>
+                    <p><strong>Bachelor's in Political Science, Minor in History</strong><br>
+                    Eastern Michigan University<br>
+                    200+ accumulated college credits across multiple disciplines</p>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-certificate"></i> Technical Certifications</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="achievement-badge">
+                            <i class="fab fa-apple"></i> Apple ACiT 2018
+                        </span>
+                        <span class="achievement-badge">
+                            <i class="fas fa-mobile-alt"></i> Samsung Level 1 & 2
+                        </span>
+                        <span class="achievement-badge">
+                            <i class="fas fa-tools"></i> WISE Technician
+                        </span>
+                        <span class="achievement-badge">
+                            <i class="fas fa-shield-alt"></i> Asurion Certified
+                        </span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-briefcase"></i> Professional Licenses</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="achievement-badge">
+                            <i class="fas fa-id-card"></i> NMLS 2071358
+                        </span>
+                        <span class="achievement-badge">
+                            <i class="fas fa-pen-nib"></i> Notary Public
+                        </span>
+                        <span class="achievement-badge">
+                            <i class="fas fa-car"></i> Driver's License
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unique Value Proposition -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                Unique Value Proposition
+            </h2>
+            
+            <div class="highlight">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem;">
+                    <i class="fas fa-lightbulb"></i> Why I'm Different
+                </h4>
+                <p style="line-height: 1.7; margin-bottom: 1rem;">
+                    Unlike typical AI engineers who come purely from academic or tech backgrounds, I bring a unique combination of 
+                    <strong>deep technical AI expertise</strong> and <strong>real-world business experience</strong> across multiple industries. 
+                    I also have already developed a strong philosophy‑driven approach to ethical AI and my passion for democratizing
+                    and integrating advanced technology can be understood by browsing my repositories and contributions.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px;">
+                        <h5 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                            <i class="fas fa-brain"></i> Technical Depth
+                        </h5>
+                        <p style="font-size: 0.9rem;">Self-taught AI engineer with hands-on experience across all modalities and 105+ quantized models</p>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px;">
+                        <h5 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                            <i class="fas fa-building"></i> Business Acumen
+                        </h5>
+                        <p style="font-size: 0.9rem;">Banking, customer service, and management experience understanding real business needs</p>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px;">
+                        <h5 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                            <i class="fas fa-users"></i> Customer Focus
+                        </h5>
+                        <p style="font-size: 0.9rem;">Extensive customer service experience ensures AI solutions that actually help end users</p>
+                    </div>
+                    
+                    <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px;">
+                        <h5 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+                            <i class="fas fa-shield-alt"></i> Regulatory Knowledge
+                        </h5>
+                        <p style="font-size: 0.9rem;">Banking compliance experience valuable for AI governance and ethical AI development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">
+                <i class="fas fa-handshake"></i>
+                Available for AI Engineering Roles
+            </h3>
+            
+            <div class="availability">
+                <div class="availability-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Willing to relocate anywhere</span>
+                </div>
+                <div class="availability-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Authorized to work in US</span>
+                </div>
+                <div class="availability-item">
+                    <i class="fas fa-rocket"></i>
+                    <span>Ready to start immediately</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color);">
+                <a href="https://moonlanguage.org" class="link-btn small-btn" target="_blank">
+                    <i class="fas fa-code"></i>
+                    Moon Language
+                </a>
+                <a href="https://www.linkedin.com/in/michael-pisani-bb24a4220" class="link-btn small-btn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>        
+                <a href="https://discord.com/users/benevolence.messiah" class="link-btn small-btn" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    Discord
+                </a>
+                <a href="mailto:benevolence.messiah@gmaill.com" class="link-btn small-btn">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">
+                    <i class="fas fa-heart" style="color: #ef4444;"></i>
+                    Passionate about building AI systems that make a real difference in people's lives
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate metrics on scroll
+            const metrics = document.querySelectorAll('.metric-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        target.textContent = '0';
+                        
+                        const increment = () => {
+                            const current = parseInt(target.textContent);
+                            const final = parseInt(finalValue.replace(/\D/g, ''));
+                            const incrementValue = Math.ceil(final / 50);
+                            
+                            if (current < final) {
+                                target.textContent = (current + incrementValue) + (finalValue.includes('+') ? '+' : '');
+                                requestAnimationFrame(increment);
+                            } else {
+                                target.textContent = finalValue;
+                            }
+                        };
+                        
+                        setTimeout(increment, 200);
+                        observer.unobserve(target);
+                    }
+                });
+            });
+            
+            metrics.forEach(metric => observer.observe(metric));
+            
+            // Add hover effects to project cards
+            const projects = document.querySelectorAll('.project');
+            projects.forEach(project => {
+                project.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(8px) scale(1.02)';
+                });
+                
+                project.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+    "outline": {
+        "slideNumber": 1,
+        "title": "Michael Pisani",
+        "subTitle": "AI Engineer & Multimodal Systems Architect"
+    },
+    "tableOfContent": {
+        "slideNumber": 2
+    },
+    "chapters": {
+        "slideNumber": 3,
+        "chapterTitle": "Professional Profile",
+        "slides": [
+            {
+                "slideNumber": 4,
+                "slideTitle": "AI Technical Expertise",
+                "slideContent": "Self-taught AI engineer with deep expertise across all modalities: text generation (LLMs, transformers), image synthesis (Stable Diffusion, FLUX), video generation (FramePack, CogVideo, Wan2.2), audio synthesis (ACE-Step, AllTalk TTS), and multimodal integration. Creator of several Python/AI packages, the Moon Programming Language, and contributor to major open-source AI projects. Extensive experience with proprietary and open-weight state-of-the-art models including Qwen, DeepSeek, Kimi, Yi, Llama, Mistral, ChatGPT, Claude, and Gemini through both cloud APIs and local deployment. Developed pipelines that combine different modalities for conversational agents and content creation."
+            },
+            {
+                "slideNumber": 5,
+                "slideTitle": "Core Technical Skills",
+                "slideContent": "Programming Languages: Python (advanced), TypeScript/JavaScript, Java, C++, Rust, Go, Ruby, Shell scripting, Batch File scripting, Docker, Moon Language. AI/ML Frameworks: Transformers, PyTorch, TensorFlow, Diffusers, Ollama, OpenRouter API. Infrastructure: Docker, Redis, PostgreSQL, cloud deployment, GPU optimization. Specialized Knowledge: Model quantization (GGUF), fine-tuning techniques, agentic systems, multimodal architecture, real-time inference optimization."
+            },
+            {
+                "slideNumber": 6,
+                "slideTitle": "Key Projects & Contributions",
+                "slideContent": "Multimodal Discord Bot: Comprehensive AI assistant integrating text generation, image creation, music synthesis, voice generation, and web search. Built with TypeScript, Docker, and supports hybrid local/cloud AI providers. ACE-Step Integration: Enhanced music generation API with structured input processing and Discord integration. FramePack Adaptation: Video diffusion framework optimization for practical deployment. HuggingFace Models: 105+ quantized models (Qwen, DeepSeek series) with 2000+ downloads. PyPI Packages: token-itemize, treefile, reqs-checker utilities for AI development workflow."
+            },
+            {
+                "slideNumber": 7,
+                "slideTitle": "Professional Background",
+                "slideContent": "Banking & Finance (Current): Fifth Third Bank - Complex financial products, loan origination (NMLS 2071358), high-dollar transactions, risk assessment. Technical Support: Asurion Insurance - Apple/Samsung certified technician, device diagnostics, data recovery. Management: Multi-unit restaurant operations with 250+ employees, process optimization, customer relationship management. This diverse background provides unique perspective on AI applications in finance, customer service, and operational efficiency."
+            },
+            {
+                "slideNumber": 8,
+                "slideTitle": "Unique Value Proposition",
+                "slideContent": "Cross-domain expertise combining deep AI technical knowledge with real-world business acumen. Self-taught approach demonstrates rapid learning capability and problem-solving mindset. Experience with both enterprise environments and startup-style development. Understanding of regulatory compliance (banking), customer experience optimization, and technical implementation. Positioned to bridge the gap between AI research and practical business applications, particularly in fintech, customer service automation, and multimodal AI systems."
+            }
+        ]
+    },
+    "final": {
+        "slideNumber": 9,
+        "finalContent": "Available for AI engineering roles focusing on multimodal systems, agentic AI, and production deployment. Willing to relocate anywhere. Authorized to work in the US for any employer."
+    }
+}
